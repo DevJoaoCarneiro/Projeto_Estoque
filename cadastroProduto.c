@@ -23,18 +23,18 @@ void cadastroProduto(Lista *L)
             produto.codigoProduto = L->ultimo->conteudo.codigoProduto + 1;
         }
 
-        gotoxy(6, 8);
+        gotoxy(8, 6);
         printf("Id produto......:%d", produto.codigoProduto);
 
-        gotoxy(33, 10);
+        gotoxy(34, 8);
         fflush(stdin);
         fgets(produto.nomeProduto, 50, stdin);
 
-        gotoxy(33, 12);
+        gotoxy(34, 10);
         fflush(stdin);
         fgets(produto.unidadeMedida, 10, stdin);
 
-        gotoxy(33, 14);
+        gotoxy(34, 12);
         fflush(stdin);
         fgets(produto.dataValidade, 11, stdin);
 

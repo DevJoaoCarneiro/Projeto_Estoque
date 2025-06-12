@@ -25,13 +25,13 @@ void tela()
   }
   printf("===============================================================================\n");
   gotoxy(30, 02);
-  printf("TELA CADASTRO");
+  printf("Sistema de Estoque");
   gotoxy(01, 01);
   printf("Autor.......Joao Carneiro");
   gotoxy(01, 02);
-  printf("Faculdade...UNICV");
+  printf("Autor.......Luan Araujo");
   gotoxy(01, 03);
-  printf("Ano.........2024");
+  printf("Ano.........2025");
   gotoxy(00, 04);
   printf("===============================================================================\n");
   gotoxy(00, 20);
@@ -52,29 +52,51 @@ void limpar()
   printf("                                                                          ");
 }
 
-int telaPrincipal(){
-    int resp;
-    limpar();
-    gotoxy(20,12);
-    printf("1- Menu Cadastro do Produto");
-    gotoxy(20,14);
-    printf("2- Menu movimentacao de Estoque");
-    gotoxy(20,16);
-    printf("3- Finalizar o programa");
-    gotoxy(01,21);
-    printf("Digite sua resposta....");
-    scanf("%d", &resp);
+int telaPrincipal()
+{
+  int resp;
+  limpar();
+  gotoxy(22, 8);
+  printf("1- Menu Cadastro do Produto");
+  gotoxy(22, 10);
+  printf("2- Menu movimentacao de Estoque");
+  gotoxy(22, 12);
+  printf("3- Finalizar o programa");
+  gotoxy(01, 21);
+  printf("Digite sua resposta....");
+  scanf("%d", &resp);
 
-    return resp;
+  return resp;
 }
 
-void telaCadastroProduto(){
-    limpar();
-    gotoxy(6,10);
-    printf("1- Descricao do produto..:");
-    gotoxy(6,12);
-    printf("2- Unidade de medida.....:");
-    gotoxy(6,14);
-    printf("3- Data de validade......:");
-   
+void telaCadastroProduto()
+{
+  limpar();
+  gotoxy(8, 8);
+  printf("1- Descricao do produto..:");
+  gotoxy(8, 10);
+  printf("2- Unidade de medida.....:");
+  gotoxy(8, 12);
+  printf("3- Data de validade......:");
+}
+
+int opcaoCadastro()
+{
+  int resp;
+  limpar();
+  gotoxy(25, 8);
+  printf("1- Cadastrar Produto.:");
+  gotoxy(25, 10);
+  printf("2- Consultar Produto.:");
+  gotoxy(25, 12);
+  printf("3- Editar Produto....:");
+  gotoxy(25, 14);
+  printf("4- Excluir Produto...:");
+  gotoxy(01,21);
+  printf("Digite sua resposta..:                             ");
+  gotoxy(24,21);
+  scanf("%d", &resp);
+
+  return resp;
+
 }
