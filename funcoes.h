@@ -60,4 +60,14 @@ void inicializaLista(Lista *L);
 
 void cadastroProduto(Lista *L);
 
+void consultaCodigo(Lista *L);
+
+void ordenaCodigo(Lista *L);
+
+void ordenaNome(Lista *L);
+
+void ordemCodigo(Lista *L);
+
+void consultaProduto(Lista *L);
+
 #endif
