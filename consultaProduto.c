@@ -1,3 +1,8 @@
+/*Autor............Luan Araujo Mello
+  Data Modificacao.12/06/25
+  Funcao...........Consulta Produtos
+*/
+
 #include "funcoes.h"
 #include "interface.h"
 #include <string.h>
@@ -7,26 +12,19 @@ static void mostraProduto(PonteiroProduto p)
     // Remove a quebra de linha que o fgets pode deixar no final da string
     p->conteudo.nomeProduto[strcspn(p->conteudo.nomeProduto, "\n")] = 0;
     p->conteudo.dataValidade[strcspn(p->conteudo.dataValidade, "\n")] = 0;
-    
+
     limpar();
     gotoxy(25, 8);
     printf("--- DADOS DO PRODUTO ---");
-    
     gotoxy(6, 11);
     printf("Codigo............: %d", p->conteudo.codigoProduto);
-    
     gotoxy(6, 12);
     printf("Nome..............: %s", p->conteudo.nomeProduto);
-
     gotoxy(6, 13);
     printf("Unidade de Medida.: %s", p->conteudo.unidadeMedida);
-
     gotoxy(6, 14);
     printf("Data de Validade..: %s", p->conteudo.dataValidade);
-
-    gotoxy(1, 21);
-    printf("Pressione qualquer tecla para continuar...");
-    getch();
+    
 }
 
 void consultaCodigo(Lista *L)
@@ -36,7 +34,7 @@ void consultaCodigo(Lista *L)
     limpar();
     gotoxy(24, 12);
     printf("**CONSULTA POR CODIGO**");
-    gotoxy(01, 21);
+    gotoxy(1, 21);
     printf("Digite o codigo que deseja consultar...");
     gotoxy(41, 21);
     scanf("%d", &codigo);
@@ -53,93 +51,97 @@ void consultaCodigo(Lista *L)
     limpar();
     gotoxy(24, 12);
     printf("*CODIGO NAO ENCONTRADO*");
+    getch(); 
     return;
 }
 
 void ordenaCodigo(Lista *L)
 {
-    if (L->primeiro == NULL)
+    if (L->primeiro == NULL || L->primeiro->proximo == NULL)
     {
         return;
     }
-
+    int trocou;
     PonteiroProduto p;
-    PonteiroProduto q;
     reg_produto temp;
-
-    p = L->primeiro;
-
-    while (p->proximo != NULL)
+    do
     {
-        q = p->proximo;
-        if (p->conteudo.codigoProduto > q->conteudo.codigoProduto)
+        trocou = 0;
+        p = L->primeiro;
+        while (p->proximo != NULL)
         {
-            temp = p->conteudo;
-            p->conteudo = q->conteudo;
-            q->conteudo = temp;
+            if (p->conteudo.codigoProduto > p->proximo->conteudo.codigoProduto)
+            {
+                temp = p->conteudo;
+                p->conteudo = p->proximo->conteudo;
+                p->proximo->conteudo = temp;
+                trocou = 1;
+            }
+            p = p->proximo;
         }
-        p = p->proximo;
-    }
+    } while (trocou);
 }
 
 void ordenaNome(Lista *L)
 {
-    if (L->primeiro == NULL)
+    if (L->primeiro == NULL || L->primeiro->proximo == NULL)
     {
         return;
     }
-
+    int trocou;
     PonteiroProduto p;
-    PonteiroProduto q;
-    reg_produto func;
-
-    p = L->primeiro;
-
-    while (p->proximo != NULL)
+    reg_produto temp;
+    do
     {
-        q = p->proximo;
-        if (strcmp(p->conteudo.nomeProduto, q->conteudo.nomeProduto) > 0)
+        trocou = 0;
+        p = L->primeiro;
+        while (p->proximo != NULL)
         {
-            func = p->conteudo;
-            p->conteudo = q->conteudo;
-            q->conteudo = func;
+            if (strcmp(p->conteudo.nomeProduto, p->proximo->conteudo.nomeProduto) > 0)
+            {
+                temp = p->conteudo;
+                p->conteudo = p->proximo->conteudo;
+                p->proximo->conteudo = temp;
+                trocou = 1;
+            }
+            p = p->proximo;
         }
-        p = p->proximo;
-    }
+    } while (trocou);
 }
 
 void ordemCodigo(Lista *L)
 {
-
     PonteiroProduto p = L->primeiro;
     int contador = 1;
     limpar();
-    gotoxy(01, 06);
+    gotoxy(1, 6);
     printf("|Codigo    |Nome Produto                                 |Data Validade          ");
 
     while (p != NULL)
     {
-        gotoxy(01, 06 + contador);
+        gotoxy(1, 6 + contador);
+        // Remove a quebra de linha 
+        p->conteudo.nomeProduto[strcspn(p->conteudo.nomeProduto, "\n")] = 0;
+        p->conteudo.dataValidade[strcspn(p->conteudo.dataValidade, "\n")] = 0;
         printf("|%-10d|%-45s|%-8s", p->conteudo.codigoProduto, p->conteudo.nomeProduto, p->conteudo.dataValidade);
         p = p->proximo;
         contador++;
         if (contador >= 14)
         {
-            gotoxy(01, 21);
+            gotoxy(1, 21);
             printf("Pressione ENTER para a proxima pagina");
             getch();
-
-            contador = 0;
+            contador = 1; // Reinicia o contador para a nova pagina
             limpar();
-            gotoxy(01, 06);
+            gotoxy(1, 6);
             printf("|Codigo    |Nome Produto                                 |Data Validade          ");
         }
     }
+    
 }
 
 void consultaProduto(Lista *L)
 {
-
     int resp;
     limpar();
     if (L->primeiro == NULL)
@@ -147,18 +149,18 @@ void consultaProduto(Lista *L)
         limpar();
         gotoxy(27, 12);
         printf("A LISTA ESTA VAZIA");
+        getch();
         return;
     }
-
-    gotoxy(25, 06);
-    printf("*MENU OPCOES*");
+    gotoxy(25, 6);
+    printf("*MENU CONSULTA*");
     gotoxy(22, 8);
     printf("1-Consultar por codigo");
     gotoxy(22, 10);
-    printf("2-Ordem alfabeticar");
+    printf("2-Ordem alfabetica");
     gotoxy(22, 12);
     printf("3-Ordem de codigo");
-    gotoxy(01, 21);
+    gotoxy(1, 21);
     printf("Insira sua resposta....           ");
     gotoxy(25, 21);
     scanf("%d", &resp);
