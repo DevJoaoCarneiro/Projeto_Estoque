@@ -51,7 +51,7 @@ void cadastroProduto(Lista *L)
             {
                 L->primeiro = p;
                 L->ultimo = p;
-                p->proximo = L->primeiro;
+                p->proximo = NULL;
             }
             else
             {

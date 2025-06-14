@@ -70,4 +70,8 @@ void ordemCodigo(Lista *L);
 
 void consultaProduto(Lista *L);
 
+void mostraProduto(PonteiroProduto p);
+
+void editaProduto(Lista *L);
+
 #endif
