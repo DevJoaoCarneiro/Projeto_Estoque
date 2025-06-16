@@ -37,9 +37,9 @@ void consultaCodigo(Lista *L)
     if (L->primeiro == NULL)
     {
         limpar();
-        gotoxy(27, 12);
+        gotoxy(20, 12);
         printf("A LISTA ESTA VAZIA. Nao ha produtos para consultar.");
-        getch();
+        
         return;
     }
 
@@ -194,7 +194,7 @@ void ordemCodigo(Lista *L)
         }
     }
     gotoxy(1, 22);
-    printf("Fim da lista. Pressione qualquer tecla para voltar.");
+    printf("Pressione qualquer tecla para continuar.");
     getch();
 }
 

@@ -12,9 +12,8 @@ void editaProduto(Lista *L)
   if (L->primeiro == NULL)
   {
     limpar();
-    gotoxy(27, 12);
+    gotoxy(20, 12);
     printf("A LISTA ESTA VAZIA. Nao ha produtos para editar.");
-    getch();
     return;
   }
 

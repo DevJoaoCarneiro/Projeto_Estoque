@@ -27,6 +27,9 @@ int main()
             case 3:
                 editaProduto(&L);
                 break;
+            case 4:
+                excluiProduto(&L);
+                break;
             default:
                 gotoxy(22, 12);
                 printf("Opcao Invalida!");

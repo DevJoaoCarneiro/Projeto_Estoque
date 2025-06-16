@@ -29,6 +29,8 @@ typedef struct
 {
     PonteiroProduto primeiro;
     PonteiroProduto ultimo;
+    int tamanho;
+    int proxCodigoProduto;
 } Lista;
 
 typedef struct
@@ -73,5 +75,7 @@ void consultaProduto(Lista *L);
 void mostraProduto(PonteiroProduto p);
 
 void editaProduto(Lista *L);
+
+void excluiProduto(Lista *L);
 
 #endif
