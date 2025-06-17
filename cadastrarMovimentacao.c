@@ -5,7 +5,7 @@
 #include "funcoes.h"
 #include "interface.h"
 
-void cadastrarMovimentacao(Lista *L)
+void cadastrarMovimentacao(Lista *L, Lista_Movimentacao *X)
 {
     telaMovimentacao();
 
@@ -35,15 +35,23 @@ void cadastrarMovimentacao(Lista *L)
         p = p->proximo;
     }
 
+    if (p == NULL)
+    {
+        limpar();
+        gotoxy(24, 18);
+        printf("Produto nao encontrado!");
+        return;
+    }
+
     gotoxy(33, 8);
     fflush(stdin);
     fgets(movimentacao.dataMovimentacao, 11, stdin);
 
-    gotoxy(01,21);
+    gotoxy(01, 21);
     printf("Digite S = Saida ou E = Entrada");
     gotoxy(33, 9);
     scanf(" %c", &movimentacao.tipoMovimentacao);
-    gotoxy(01,21);
+    gotoxy(01, 21);
     printf("                                   ");
 
     gotoxy(33, 10);
@@ -51,11 +59,11 @@ void cadastrarMovimentacao(Lista *L)
 
     if (movimentacao.tipoMovimentacao == 'S' || movimentacao.tipoMovimentacao == 's')
     {
+        movimentacao.valor_unitario = 0;
         if (p->conteudo.quantidadeEstoque >= movimentacao.qtdeMovimentacao)
         {
             p->conteudo.quantidadeEstoque -= movimentacao.qtdeMovimentacao;
             p->conteudo.valorTotal = p->conteudo.quantidadeEstoque * p->conteudo.custoMedio;
-           
         }
         else
         {
@@ -64,18 +72,36 @@ void cadastrarMovimentacao(Lista *L)
             printf("Erro: Estoque insuficiente para retirada!");
             return;
         }
-    }else{
-    
-    gotoxy(33, 11);
-    scanf("%f", &movimentacao.valor_unitario);
+    }
+    else
+    {
 
+        gotoxy(33, 11);
+        scanf("%f", &movimentacao.valor_unitario);
 
-    p->conteudo.custoMedio = ((p->conteudo.custoMedio * p->conteudo.quantidadeEstoque) + (movimentacao.valor_unitario * movimentacao.qtdeMovimentacao)) / (p->conteudo.quantidadeEstoque + movimentacao.qtdeMovimentacao);
+        p->conteudo.custoMedio = ((p->conteudo.custoMedio * p->conteudo.quantidadeEstoque) + (movimentacao.valor_unitario * movimentacao.qtdeMovimentacao)) / (p->conteudo.quantidadeEstoque + movimentacao.qtdeMovimentacao);
 
-    p->conteudo.quantidadeEstoque += movimentacao.qtdeMovimentacao;
+        p->conteudo.quantidadeEstoque += movimentacao.qtdeMovimentacao;
 
-    p->conteudo.valorTotal = p->conteudo.quantidadeEstoque * p->conteudo.custoMedio;
+        p->conteudo.valorTotal = p->conteudo.quantidadeEstoque * p->conteudo.custoMedio;
+    }
 
+    Ponteiro_Mov x = (Ponteiro_Mov)malloc(sizeof(TipoItem_Mov));
+
+    x->movimentacao = movimentacao;
+    x->proximo = NULL;
+
+    if (X->primeiro == NULL)
+    {
+        X->primeiro = x;
+        X->ultimo = x;
+    }
+    else
+    {
+        x->anterior = X->ultimo;
+        X->ultimo->proximo = x;
+        X->ultimo = x;
+        x->proximo = NULL;
     }
 
     gotoxy(33, 12);
@@ -89,4 +115,8 @@ void cadastrarMovimentacao(Lista *L)
 
     gotoxy(58, 16);
     printf("%.2f", p->conteudo.valorTotal);
+
+    gotoxy(1, 22);
+    printf("Movimentacao registrada com sucesso! Pressione qualquer tecla...");
+    getch();
 }

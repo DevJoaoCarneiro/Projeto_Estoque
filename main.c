@@ -39,7 +39,7 @@ int main()
             }
             break;
         case 2:
-            cadastrarMovimentacao(&L);
+            cadastrarMovimentacao(&L, &M);
             break;
         case 3:
             return 0;

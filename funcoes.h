@@ -80,6 +80,6 @@ void editaProduto(Lista *L);
 
 void excluiProduto(Lista *L);
 
-void cadastrarMovimentacao(Lista *L);
+void cadastrarMovimentacao(Lista *L, Lista_Movimentacao *X);
 
 #endif
