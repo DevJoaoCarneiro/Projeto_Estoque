@@ -10,3 +10,9 @@ void inicializaLista(Lista *L)
     L->tamanho = 0;
     L->proxCodigoProduto = 1;
 }
+
+void inicializaListaMovimentacao(Lista_Movimentacao *L)
+{
+    L->primeiro = NULL;
+    L->ultimo = NULL;
+}

@@ -12,5 +12,6 @@ void limpar();
 int telaPrincipal();
 void telaCadastroProduto();
 int opcaoCadastro();
+void telaMovimentacao();
 
 #endif

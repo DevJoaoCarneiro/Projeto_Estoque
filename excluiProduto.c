@@ -1,3 +1,7 @@
+/*Autor............Joao Victor Carneiro
+  Data Modificacao.17/06/25
+  Funcao...........Exclui Produto*/
+
 #include "funcoes.h"
 #include "interface.h"
 

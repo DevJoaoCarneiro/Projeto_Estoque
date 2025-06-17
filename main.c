@@ -6,7 +6,9 @@ int main()
 {
     int resp, reiniciar;
     Lista L;
+    Lista_Movimentacao M;
     inicializaLista(&L);
+    inicializaListaMovimentacao(&M);
 
     do
     {
@@ -37,8 +39,7 @@ int main()
             }
             break;
         case 2:
-            gotoxy(22, 12);
-            printf("Opcao Invalida!");
+            cadastrarMovimentacao(&L);
             break;
         case 3:
             return 0;

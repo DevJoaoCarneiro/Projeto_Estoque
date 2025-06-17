@@ -100,3 +100,34 @@ int opcaoCadastro()
   return resp;
 
 }
+
+void telaMovimentacao(){
+  limpar();
+  gotoxy(06, 06);
+  printf("Codigo do Produto.......:");
+  gotoxy(06, 07);
+  printf("Nome do Produto.........:");
+  gotoxy(06, 8);
+  printf("Data Da Movimentacao....:");
+  gotoxy(06, 9);
+  printf("Tipo de Movimentacao....:");
+  gotoxy(06, 10);
+  printf("Quantidade..............:");
+  gotoxy(06, 11);
+  printf("Valor Unitario..........:");
+  gotoxy(06, 12);
+  printf("Valor Total.............:");
+
+  gotoxy(06, 13);
+  printf("+----------------------------------------------------------------+");
+  gotoxy(06, 14);
+  printf("|    QUANTIDADE     |      CUSTO MEDIO     |      VALOR TOTAL    |");
+  gotoxy(06, 15);
+  printf("+----------------------------------------------------------------+");
+  gotoxy(06, 16);
+  printf("|                   |                      |                     |");
+  gotoxy(06, 17);
+  printf("|                   |                      |                     |");
+  gotoxy(06, 18);
+  printf("+----------------------------------------------------------------+");
+}

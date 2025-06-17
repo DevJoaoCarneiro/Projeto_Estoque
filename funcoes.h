@@ -60,6 +60,8 @@ typedef struct
 
 void inicializaLista(Lista *L);
 
+void inicializaListaMovimentacao(Lista_Movimentacao *L);
+
 void cadastroProduto(Lista *L);
 
 void consultaCodigo(Lista *L);
@@ -77,5 +79,7 @@ void mostraProduto(PonteiroProduto p);
 void editaProduto(Lista *L);
 
 void excluiProduto(Lista *L);
+
+void cadastrarMovimentacao(Lista *L);
 
 #endif
