@@ -85,6 +85,9 @@ void excluiProduto(Lista *L)
 
     free(atual);
     L->tamanho--;
+
+    salvarDadosProduto(L); 
+
     limpar();
     gotoxy(24, 12);
     printf("Produto excluido com sucesso!");

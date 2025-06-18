@@ -68,6 +68,8 @@ int main()
         }
         break;
         case 3:
+            salvarDadosProduto(&L);
+            salvarDadosMovimentacao(&M);
             return 0;
             break;
         }

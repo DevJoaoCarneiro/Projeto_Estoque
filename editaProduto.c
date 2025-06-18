@@ -171,6 +171,9 @@ void editaProduto(Lista *L)
           break;
         }
       } while (opcao_campo != 5);
+
+      salvarDadosProduto(L); 
+
     }
   }
   else
