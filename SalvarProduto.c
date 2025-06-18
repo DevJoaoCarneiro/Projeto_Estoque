@@ -3,7 +3,7 @@
 
 void salvarDadosProduto(Lista *L)
 {
-    FILE *fp = fopen("funcionarios.dat", "wb");
+    FILE *fp = fopen("produtos.dat", "wb");
     if (fp == NULL)
     {
         limpar();
@@ -12,6 +12,8 @@ void salvarDadosProduto(Lista *L)
         Sleep(2000);
         return;
     }
+
+    fwrite(&L->proxCodigoProduto, sizeof(int), 1, fp);
 
     PonteiroProduto atual = L->primeiro;
 
@@ -33,11 +35,13 @@ void salvarDadosProduto(Lista *L)
 
 void carregarArquivoProduto(Lista *L)
 {
-    FILE *fp = fopen("funcionarios.dat", "rb");
+    FILE *fp = fopen("produtos.dat", "rb");
     if (fp == NULL)
     {
         return;
     }
+
+    fread(&L->proxCodigoProduto, sizeof(int), 1, fp);
 
     reg_produto temp;
 

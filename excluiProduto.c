@@ -65,7 +65,7 @@ void excluiProduto(Lista *L)
     {
         limpar();
         gotoxy(24, 12);
-        printf("Operação cancelada pelo usuário.");
+        printf("Operacao cancelada pelo usuario.");
         getch();
         return;
     }
