@@ -38,9 +38,28 @@ int main()
                 break;
             }
             break;
-        case 2:
-            cadastrarMovimentacao(&L, &M);
-            break;
+        case 2: 
+        {
+            int opcao_mov = opcaoMovimentacao();
+
+            switch (opcao_mov)
+            {
+            case 1:
+                cadastrarMovimentacao(&L, &M);
+                break;
+            case 2:
+                listarMovimentacao(&L, &M);
+                break;
+            case 3:
+                break;
+            default:
+                gotoxy(25, 12);
+                printf("Opcao Invalida!");
+                getch(); 
+                break;
+            }
+        }
+        break;
         case 3:
             return 0;
             break;

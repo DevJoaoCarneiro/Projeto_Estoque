@@ -13,5 +13,6 @@ int telaPrincipal();
 void telaCadastroProduto();
 int opcaoCadastro();
 void telaMovimentacao();
+int opcaoMovimentacao();
 
 #endif

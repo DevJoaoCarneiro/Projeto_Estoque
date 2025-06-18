@@ -92,16 +92,16 @@ int opcaoCadastro()
   printf("3- Editar Produto....:");
   gotoxy(25, 14);
   printf("4- Excluir Produto...:");
-  gotoxy(01,21);
+  gotoxy(01, 21);
   printf("Digite sua resposta..:                             ");
-  gotoxy(24,21);
+  gotoxy(24, 21);
   scanf("%d", &resp);
 
   return resp;
-
 }
 
-void telaMovimentacao(){
+void telaMovimentacao()
+{
   limpar();
   gotoxy(06, 06);
   printf("Codigo do Produto.......:");
@@ -130,4 +130,24 @@ void telaMovimentacao(){
   printf("|                   |                      |                     |");
   gotoxy(06, 18);
   printf("+----------------------------------------------------------------+");
+}
+
+int opcaoMovimentacao()
+{
+  int resp;
+
+  limpar();
+
+  gotoxy(22, 8);
+  printf("1- Cadastra Movimentacao de Estoque"); 
+  gotoxy(22, 10);
+  printf("2- Lista Movimentacao de Estoque"); 
+  gotoxy(22, 12);
+  printf("3- Retornar ao Menu Principal"); 
+
+  gotoxy(01, 21);
+  printf("Digite sua opcao..: ");
+  scanf("%d", &resp);
+
+  return resp;
 }
