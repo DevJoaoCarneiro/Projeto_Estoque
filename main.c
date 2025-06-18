@@ -40,7 +40,7 @@ int main()
                 salvarDadosMovimentacao(&M);
                 break;
             default:
-                gotoxy(22, 12);
+                gotoxy(25, 18);
                 printf("Opcao Invalida!");
                 break;
             }
