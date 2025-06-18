@@ -116,7 +116,12 @@ void cadastrarMovimentacao(Lista *L, Lista_Movimentacao *X)
     gotoxy(58, 16);
     printf("%.2f", p->conteudo.valorTotal);
 
+    salvarDadosProduto(L);          
+    salvarDadosMovimentacao(X);
+    
     gotoxy(1, 22);
     printf("Movimentacao registrada com sucesso! Pressione qualquer tecla...");
+
+    
     getch();
 }

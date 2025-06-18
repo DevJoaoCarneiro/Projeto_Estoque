@@ -35,6 +35,17 @@ void cadastroProduto(Lista *L)
         produto.custoMedio = 0;
         produto.valorTotal = 0;
 
+        gotoxy(18, 16);
+        printf("%.2f", produto.quantidadeEstoque);
+
+        gotoxy(38, 16);
+        printf("%.2f", produto.custoMedio);
+
+        gotoxy(58, 16);
+        printf("%.2f", produto.valorTotal);
+
+        
+
         gotoxy(01, 21);
         printf("Deseja cadastrar o produto (1-Sim 2-Nao)..:");
         scanf("%d", &resp);
@@ -89,7 +100,7 @@ void cadastroProduto(Lista *L)
 
                     } while (resp <= 1 || resp > L->tamanho);
 
-                    if (resp == L->tamanho) 
+                    if (resp == L->tamanho)
                     {
                         L->ultimo->proximo = p;
                         L->ultimo = p;
@@ -118,6 +129,7 @@ void cadastroProduto(Lista *L)
             limpar();
             gotoxy(24, 12);
             printf("Cadastrado com sucesso!!");
+            salvarDadosProduto(L);
             L->proxCodigoProduto++;
             L->tamanho++;
         }

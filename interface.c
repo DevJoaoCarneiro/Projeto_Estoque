@@ -78,6 +78,19 @@ void telaCadastroProduto()
   printf("2- Unidade de medida.....:");
   gotoxy(8, 12);
   printf("3- Data de validade......:");
+
+  gotoxy(06, 13);
+  printf("+----------------------------------------------------------------+");
+  gotoxy(06, 14);
+  printf("|    QUANTIDADE     |      CUSTO MEDIO     |      VALOR TOTAL    |");
+  gotoxy(06, 15);
+  printf("+----------------------------------------------------------------+");
+  gotoxy(06, 16);
+  printf("|                   |                      |                     |");
+  gotoxy(06, 17);
+  printf("|                   |                      |                     |");
+  gotoxy(06, 18);
+  printf("+----------------------------------------------------------------+");
 }
 
 int opcaoCadastro()
@@ -92,6 +105,8 @@ int opcaoCadastro()
   printf("3- Editar Produto....:");
   gotoxy(25, 14);
   printf("4- Excluir Produto...:");
+  gotoxy(25, 16);
+  printf("5- Voltar ao Menu....:");
   gotoxy(01, 21);
   printf("Digite sua resposta..:                             ");
   gotoxy(24, 21);
@@ -139,11 +154,11 @@ int opcaoMovimentacao()
   limpar();
 
   gotoxy(22, 8);
-  printf("1- Cadastra Movimentacao de Estoque"); 
+  printf("1- Cadastra Movimentacao de Estoque");
   gotoxy(22, 10);
-  printf("2- Lista Movimentacao de Estoque"); 
+  printf("2- Lista Movimentacao de Estoque");
   gotoxy(22, 12);
-  printf("3- Retornar ao Menu Principal"); 
+  printf("3- Retornar ao Menu Principal");
 
   gotoxy(01, 21);
   printf("Digite sua opcao..: ");

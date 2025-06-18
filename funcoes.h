@@ -84,4 +84,12 @@ void cadastrarMovimentacao(Lista *L, Lista_Movimentacao *X);
 
 void listarMovimentacao(Lista *L, Lista_Movimentacao *X);
 
+void salvarDadosProduto(Lista *L);
+
+void salvarDadosMovimentacao(Lista_Movimentacao *X);
+
+void carregarArquivoProduto(Lista *L);
+
+void carregarMovimentacao(Lista_Movimentacao *L);
+
 #endif

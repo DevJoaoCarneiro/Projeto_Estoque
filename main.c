@@ -10,6 +10,9 @@ int main()
     inicializaLista(&L);
     inicializaListaMovimentacao(&M);
 
+    carregarArquivoProduto(&L);
+    carregarMovimentacao(&M);
+
     do
     {
         tela();
@@ -32,13 +35,17 @@ int main()
             case 4:
                 excluiProduto(&L);
                 break;
+            case 5:
+                salvarDadosProduto(&L);
+                salvarDadosMovimentacao(&M);
+                break;
             default:
                 gotoxy(22, 12);
                 printf("Opcao Invalida!");
                 break;
             }
             break;
-        case 2: 
+        case 2:
         {
             int opcao_mov = opcaoMovimentacao();
 
@@ -55,7 +62,7 @@ int main()
             default:
                 gotoxy(25, 12);
                 printf("Opcao Invalida!");
-                getch(); 
+                getch();
                 break;
             }
         }
@@ -70,6 +77,8 @@ int main()
         gotoxy(33, 21);
         scanf("%d", &reiniciar);
     } while (reiniciar == 1);
+    salvarDadosProduto(&L);
+    salvarDadosMovimentacao(&M);
     gotoxy(01, 24);
     return 0;
 }
